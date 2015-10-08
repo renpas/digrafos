@@ -40,6 +40,8 @@ struct digraph {
 
 typedef struct digraph *Digraph;
 
+/*A função DIGRAPHinit constrói um digrafo com V vértices e zero arcos.
+  Também reserva espaço para v arcos a serme inserdiso futuramente. */
 Digraph DIGRAPHinit( int V){
 	Digraph G = malloc( sizeof (struct digraph));
 	G->V = V;
@@ -49,6 +51,9 @@ Digraph DIGRAPHinit( int V){
 	return G;
 }
 
+/* A função DIGRAPHInsertA insere no digrafo G um (novo) arco com ponta inicial v
+   e ponta final w. Se o arco já existe, a função não faz nada.
+   Supões-se que v e w são distintos e estão entre 0 e G->v-1. */
 void DIGRAPHinsertA( Digraph G, Vertex v, Vertex w){
 	int i;
 	for(i = 0; i < G->A; ++i){
